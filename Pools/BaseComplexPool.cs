@@ -34,5 +34,7 @@ namespace EmptyCommon.Pools
 
         protected abstract BasePool<Value> CreatePool(Value value);
         protected abstract void DestoryObject(Value value);
+
+        protected bool IsContaned(Key key) => PoolsTable.ContainsKey(key);
     }
 }
