@@ -11,12 +11,19 @@ namespace EmptyCommon.Animations
 #endif
         public IAnimationEventExecuter Executer { get; set; }
 
+#if UNITY_EDITOR
         protected virtual void Awake()
         {
             DebugEvents("BEFORE");
             RuntimeFlipAnimationEvents();
             DebugEvents("AFTER");
         }
+#else
+        protected virtual void Awake()
+        {
+            RuntimeFlipAnimationEvents();
+        }
+#endif
 
         private void RuntimeFlipAnimationEvents()
         {
