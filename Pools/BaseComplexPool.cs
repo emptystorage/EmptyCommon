@@ -7,6 +7,8 @@ namespace EmptyCommon.Pools
     {
         private readonly Dictionary<Key, BasePool<Value>> PoolsTable = new();
 
+        public bool IsContaned(Key key) => PoolsTable.ContainsKey(key);
+
         public void AddPoolObject(Key key, Value value)
         {
             PoolsTable[key] = CreatePool(value);
